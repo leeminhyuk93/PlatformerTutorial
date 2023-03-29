@@ -13,7 +13,7 @@ public class GamePanel extends JPanel {
 
 	private MouseInputs mouseInputs;
 	private float xDelta = 100, yDelta = 100;
-	private float xDir = 0.05f, yDir = 0.05f;
+	private float xDir = 0.1f, yDir = 0.1f;
 	private int frames = 0;
 	private long lastCheck = 0l;
 	private Color color = new Color(150, 20, 90);
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 		updateRectangle();
 		g.setColor(color);
-		g.fillRect((int)xDelta, (int)yDelta, 200, 50);
+		g.fillRect((int)xDelta, (int)yDelta, 50, 50);
 		frames++;
 		if(System.currentTimeMillis() - lastCheck >= 1000) {
 			lastCheck = System.currentTimeMillis();
@@ -60,14 +60,14 @@ public class GamePanel extends JPanel {
 
 	private void updateRectangle() {
 		xDelta += xDir;
-		if(xDelta + 200 > 400 || xDelta < 0) {
+		if(xDelta >= 400 || xDelta < 0) {
 			xDir *= -1;
 			color = getRndColor();
 		}
 			
 		
 		yDelta += yDir;
-		if(yDelta + 80 > 400 || yDelta < 0) {
+		if(yDelta >= 400 || yDelta < 0) {
 			yDir *= -1;
 			color = getRndColor();
 		}
@@ -78,7 +78,6 @@ public class GamePanel extends JPanel {
 		int r = random.nextInt(255);
 		int g = random.nextInt(255);
 		int b = random.nextInt(255);
-		
 		
 		return new Color(r,g,b);
 	}
