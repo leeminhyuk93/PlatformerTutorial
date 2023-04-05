@@ -23,7 +23,7 @@ public class Game implements Runnable {
 	public void run() {
 		
 		// 120 Frame Per Second : 초당 120번의 프레임 업데이트
-		double timePerFrame = 1000000000.0 / FPS_SET;
+		double timePerFrame = 1000000000.0 / FPS_SET; // 1초를 120으로 나누는 꼴이니 초당 120 프레임의 수치를 만들어 낼 수 있다.
 		long lastFrame = System.nanoTime(); 
 		long now = System.nanoTime();
 		
