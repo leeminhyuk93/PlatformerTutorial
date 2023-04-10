@@ -120,14 +120,16 @@ public class GamePanel extends JPanel {
 		}
 	}
 	
+	public void updateGame() {
+		updateAnimationTick();
+		setAnimation();
+		updatePos();
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//img = 원본, subImg = 원본에서 가져온 각각의 이미지
-		updateAnimationTick();
 		
-		setAnimation();
-		updatePos();
 		
 		g.drawImage(animations[playerAction][aniIndex], (int)xDelta, (int)yDelta, 256, 160, null);
 	}
